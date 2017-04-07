@@ -11,7 +11,7 @@ import {CoolLocalStorage} from 'angular2-cool-storage';
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
-  providers: [SecurityService, RegistrationService, Configuration]
+  providers: [SecurityService, Configuration]
 
 })
 export class AuthComponent implements OnInit {

@@ -6,10 +6,10 @@ import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
-import { HomeComponent } from './home/home.component';
-import { LogoComponent } from './shared/logo/logo.component';
-import { MenuComponent } from './shared/menu/menu.component';
-import { AuthComponent } from './auth/auth.component';
+import {HomeComponent} from './home/home.component';
+import {LogoComponent} from './shared/logo/logo.component';
+import {MenuComponent} from './shared/menu/menu.component';
+import {AuthComponent} from './auth/auth.component';
 
 @NgModule({
   declarations: [
