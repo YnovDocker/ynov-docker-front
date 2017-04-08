@@ -12,4 +12,8 @@ describe('UserService', () => {
   it('should ...', inject([UserService], (service: UserService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should register against the server', inject([UserService], (service: UserService) => {
+    expect(service.RegisterUser).toBeTruthy();
+  }));
 });
