@@ -12,4 +12,8 @@ describe('SecurityService', () => {
   it('should ...', inject([SecurityService], (service: SecurityService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should connect to the server', inject([SecurityService], (service: SecurityService) => {
+
+  }));
 });

@@ -11,7 +11,7 @@ import {CoolLocalStorage} from 'angular2-cool-storage';
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
-  providers: [SecurityService, Configuration]
+  providers: [SecurityService, CoolLocalStorage, Configuration]
 
 })
 export class AuthComponent implements OnInit {
@@ -182,6 +182,7 @@ export class AuthComponent implements OnInit {
 
   /*consome l'api pour singup le user*/
   private SignupUser(): void {
+    console.log("hello ");
     //todo use POST /users/ to add a new user to the DB
     // this.registrationServiceInstance
     //   .registerUser(this.signupUser)
