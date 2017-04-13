@@ -3,4 +3,9 @@
  */
 export class SignupUser {
   email: string;
+  password: string;
+  passwordConfirmation: string;
+  username: string;
+  firstname: string;
+  lastname: string;
 }

@@ -34,6 +34,10 @@ import {AuthComponent} from './auth/auth.component';
         path: 'home',
         component: HomeComponent
       },
+      {
+        path: 'auth',
+        component: AuthComponent
+      }
     ])
   ],
   providers: [],

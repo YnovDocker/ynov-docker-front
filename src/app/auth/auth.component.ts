@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SecurityService} from '../../shared/services/security.service';
+import {UserService} from '../../shared/services/user.service';
 import {Configuration} from '../../shared/app.constants';
 import {AuthObject} from '../../shared/models/helpers/auth-object';
 import {SignupUser} from '../../shared/models/helpers/signup-user';
@@ -11,7 +12,7 @@ import {CoolLocalStorage} from 'angular2-cool-storage';
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
-  providers: [SecurityService, Configuration]
+  providers: [SecurityService, UserService, CoolLocalStorage, Configuration]
 
 })
 export class AuthComponent implements OnInit {
@@ -23,7 +24,7 @@ export class AuthComponent implements OnInit {
   error: any;
 
   authJson: AuthObject = {
-    login: '',
+    username: '',
     password: ''
   };
 
@@ -37,6 +38,7 @@ export class AuthComponent implements OnInit {
 
 
   constructor(private securityServiceInstance: SecurityService,
+              private userServiceInstance: UserService,
               private router: Router,
               localStorage: CoolLocalStorage) {
     this.localStorage = localStorage;
@@ -68,7 +70,7 @@ export class AuthComponent implements OnInit {
     const pwd = (<HTMLInputElement>document.getElementById('pwdAuth')).value;
 
     this.authJson = {
-      login: email,
+      username: email,
       password: pwd
     };
 
@@ -177,27 +179,29 @@ export class AuthComponent implements OnInit {
     this.submitted = true;
     this.signupUser = new SignupUser();
     this.signupUser.email = event.target[0].value;
+    console.log('hi');
     this.SignupUser();
   }
 
   /*consome l'api pour singup le user*/
   private SignupUser(): void {
-    //todo use POST /users/ to add a new user to the DB
-    // this.registrationServiceInstance
-    //   .registerUser(this.signupUser)
-    //   .subscribe(
-    //     data => this.response = data,
-    //     error => {
-    //       /*console.log(JSON.parse(error._body).error),*/
-    //       this.errorMessage = JSON.parse(error._body).error;
-    //       this.infoMessage = null;
-    //     },
-    //     () => {
-    //       /*console.log('signup User complete', this.response),*/
-    //       this.infoMessage = 'Check Now your Email to signup ...';
-    //       this.errorMessage = null;
-    //     }
-    //   );
+    console.log('hello ');
+    /*todo use POST /users/ to add a new user to the DB*/
+    this.userServiceInstance
+      .RegisterUser(this.signupUser)
+      .subscribe(
+        data => this.response = data,
+        error => {
+          console.log(JSON.parse(error._body).error);
+          this.errorMessage = JSON.parse(error._body).error;
+          this.infoMessage = null;
+        },
+        () => {
+          console.log('signup User complete', this.response);
+          this.infoMessage = 'Check Now your Email to signup ...';
+          this.errorMessage = null;
+        }
+      );
   }
 
 
