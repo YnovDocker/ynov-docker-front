@@ -3,7 +3,6 @@ import {SecurityService} from '../../shared/services/security.service';
 import {UserService} from '../../shared/services/user.service';
 import {Configuration} from '../../shared/app.constants';
 import {AuthObject} from '../../shared/models/helpers/auth-object';
-import {SignupUser} from '../../shared/models/helpers/signup-user';
 import {Router} from '@angular/router';
 import * as _ from 'lodash';
 import {CoolLocalStorage} from 'angular2-cool-storage';
@@ -13,7 +12,6 @@ import {CoolLocalStorage} from 'angular2-cool-storage';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
   providers: [SecurityService, UserService, CoolLocalStorage, Configuration]
-
 })
 export class AuthComponent implements OnInit {
   localStorage: CoolLocalStorage;
@@ -27,18 +25,12 @@ export class AuthComponent implements OnInit {
     username: '',
     password: ''
   };
-
-  private response: Object;
-  private errorMessage: string;
-  private infoMessage: string;
-  private signupUser: SignupUser;
   submitted = false;
 
   username: string;
 
 
   constructor(private securityServiceInstance: SecurityService,
-              private userServiceInstance: UserService,
               private router: Router,
               localStorage: CoolLocalStorage) {
     this.localStorage = localStorage;
@@ -177,33 +169,7 @@ export class AuthComponent implements OnInit {
 
   onSubmit(event) {
     this.submitted = true;
-    this.signupUser = new SignupUser();
-    this.signupUser.email = event.target[0].value;
-    console.log('hi');
-    this.SignupUser();
   }
-
-  /*consome l'api pour singup le user*/
-  private SignupUser(): void {
-    console.log('hello ');
-    /*todo use POST /users/ to add a new user to the DB*/
-    this.userServiceInstance
-      .RegisterUser(this.signupUser)
-      .subscribe(
-        data => this.response = data,
-        error => {
-          console.log(JSON.parse(error._body).error);
-          this.errorMessage = JSON.parse(error._body).error;
-          this.infoMessage = null;
-        },
-        () => {
-          console.log('signup User complete', this.response);
-          this.infoMessage = 'Check Now your Email to signup ...';
-          this.errorMessage = null;
-        }
-      );
-  }
-
 
   private static checkIfThereIsAUppercaseCharacterInAString(string): boolean {
     return /[A-Z]/.test(string);

@@ -10,6 +10,7 @@ import {HomeComponent} from './home/home.component';
 import {LogoComponent} from './shared/logo/logo.component';
 import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {AuthComponent} from './auth/auth.component';
     HomeComponent,
     LogoComponent,
     MenuComponent,
-    AuthComponent
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,10 @@ import {AuthComponent} from './auth/auth.component';
       {
         path: 'auth',
         component: AuthComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       }
     ])
   ],
