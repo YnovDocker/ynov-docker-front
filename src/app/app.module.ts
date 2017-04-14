@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
+import { FileUploadModule } from 'ng2-file-upload';
+
 
 import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
@@ -28,6 +30,7 @@ import { TestUploadComponent } from './test-upload/test-upload.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    FileUploadModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -45,6 +48,10 @@ import { TestUploadComponent } from './test-upload/test-upload.component';
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'upload',
+        component: TestUploadComponent
       }
     ])
   ],
