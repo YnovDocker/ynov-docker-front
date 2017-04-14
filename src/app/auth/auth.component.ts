@@ -41,7 +41,7 @@ export class AuthComponent implements OnInit {
 
   }
 
-  private verifyAuth(sendAuthJson: AuthObject, callback): any {
+  private auth(sendAuthJson: AuthObject, callback): any {
     this.securityServiceInstance
       .auth(sendAuthJson)
       .subscribe(
@@ -66,7 +66,7 @@ export class AuthComponent implements OnInit {
       password: pwd
     };
 
-    this.verifyAuth(this.authJson, (status: number, error: any, verifyAuthJson: any) => {
+    this.auth(this.authJson, (status: number, error: any, verifyAuthJson: any) => {
       /*si le status de retour est à 200: OK, et que l'objet de retour n'est pas vide: on redirige*/
       if (status === 200 && !_.isEmpty(verifyAuthJson)) {
         console.log(verifyAuthJson);

@@ -51,5 +51,6 @@ import { TestUploadComponent } from './test-upload/test-upload.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+//todo add a method to fill in req with token in headers
 export class AppModule {
 }

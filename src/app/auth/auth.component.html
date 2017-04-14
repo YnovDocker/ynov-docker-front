@@ -3,9 +3,9 @@
 
   <h2 class="login-header">Log in</h2>
 
-  <form class="login-container" (submit)="auth()">
-    <p><input type="email" placeholder="Email" required></p>
-    <p><input type="password" placeholder="Password" required></p>
+  <form class="login-container" (submit)="checkAuth()">
+    <p><input type="email" id="emailAuth" placeholder="Email" required></p>
+    <p><input type="password" id="pwdAuth" placeholder="Password" required></p>
     <p><input type="submit" value="Log in"></p>
     <a href="/account/password/forgot">Forgot password</a> | <a href="/register">Register</a>
   </form>
