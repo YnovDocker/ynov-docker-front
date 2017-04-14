@@ -23,21 +23,20 @@ export class UserService {
     this.headers.append('Accept', 'application/json');
   }
 
-  public GetAllUsers = (): Observable<String> => {
+  public GetAllUsers = (): Observable<User> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'user/')
-      .map(response => response.json());
+      .map(response => (response.json() as User));
   }
 
-  public GetSingleUserById = (id: string): Observable<String> => {
-    console.log(this.actionUrl + 'user/' + id + '/getUserById')
+  public GetSingleUserById = (id: string): Observable<User> => {
     return this._http.get(this.actionUrl + 'user/' + id + '/getUserById')
-      .map(response => response.json());
+      .map(response => (response.json() as User));
   }
 
-  public GetSingleUserByUsername = (Username: string): Observable<String> => {
+  public GetSingleUserByUsername = (Username: string): Observable<User> => {
     return this._http.get(this.actionUrl + 'user/' + Username + '/getUserByUsername')
-      .map(response => response.json());
+      .map(response => (response.json() as User));
   }
 
   /*Fonctionne*/
