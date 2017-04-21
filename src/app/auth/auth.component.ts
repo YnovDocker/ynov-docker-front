@@ -29,6 +29,21 @@ export class AuthComponent implements OnInit {
 
   username: string;
 
+  private static checkIfThereIsAUppercaseCharacterInAString(string): boolean {
+    return /[A-Z]/.test(string);
+  }
+
+  private static checkIfThereIsALowercaseCharacterInAString(string): boolean {
+    return /[a-z]/.test(string);
+  }
+
+  private static checkIfThereIsANumberCharacterInAString(string): boolean {
+    return /[1-9]/.test(string);
+  }
+
+  private static checkIfTheStringIsAnEmail(string): boolean {
+    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/ig.test(string);
+  }
 
   constructor(private securityServiceInstance: SecurityService,
               private router: Router,
@@ -42,6 +57,7 @@ export class AuthComponent implements OnInit {
   }
 
   private auth(sendAuthJson: AuthObject, callback): any {
+    console.log('authenticating with authObject: ' + JSON.stringify(sendAuthJson));
     this.securityServiceInstance
       .auth(sendAuthJson)
       .subscribe(
@@ -60,6 +76,9 @@ export class AuthComponent implements OnInit {
 
     const email = (<HTMLInputElement>document.getElementById('emailAuth')).value;
     const pwd = (<HTMLInputElement>document.getElementById('pwdAuth')).value;
+
+    console.log('username: ' + email);
+    console.log('password: ' + pwd);
 
     this.authJson = {
       username: email,
@@ -169,22 +188,6 @@ export class AuthComponent implements OnInit {
 
   onSubmit(event) {
     this.submitted = true;
-  }
-
-  private static checkIfThereIsAUppercaseCharacterInAString(string): boolean {
-    return /[A-Z]/.test(string);
-  }
-
-  private static checkIfThereIsALowercaseCharacterInAString(string): boolean {
-    return /[a-z]/.test(string);
-  }
-
-  private static checkIfThereIsANumberCharacterInAString(string): boolean {
-    return /[1-9]/.test(string);
-  }
-
-  private static checkIfTheStringIsAnEmail(string): boolean {
-    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/ig.test(string);
   }
 }
 

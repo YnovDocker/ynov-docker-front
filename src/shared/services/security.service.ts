@@ -18,6 +18,7 @@ export class SecurityService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
     this.headers.append('Accept', 'application/json');
+    this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
   }
 
   public verifyEmail = (email: string, token: string): Observable<String> => {
@@ -32,8 +33,7 @@ export class SecurityService {
 
   /*Good*/
   public auth = (authObject: AuthObject): Observable<Response> => {
-    const JsonBody = JSON.stringify(authObject);
-    return this._http.post(this.actionUrl + 'auth', JsonBody, {headers: this.headers})
+    return this._http.post(this.actionUrl + 'auth', authObject, {headers: this.headers})
       .map((response => response.json()));
   }
 }
