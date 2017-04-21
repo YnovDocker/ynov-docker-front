@@ -106,6 +106,8 @@ export class AuthComponent implements OnInit {
         (<HTMLInputElement>document.getElementById('pwdAuth')).value = '';
         (<HTMLInputElement>document.getElementById('emailAuth')).style.borderColor = '#8C8C8C';
         (<HTMLInputElement>document.getElementById('pwdAuth')).style.borderColor = '#8C8C8C';
+      } else {
+        console.log('shit happened: ');
       }
     });
   }
