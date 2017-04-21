@@ -18,7 +18,6 @@ export class SecurityService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
     this.headers.append('Accept', 'application/json');
-    this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
   }
 
   public verifyEmail = (email: string, token: string): Observable<String> => {
