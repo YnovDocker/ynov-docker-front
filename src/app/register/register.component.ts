@@ -15,7 +15,6 @@ import {CoolLocalStorage} from 'angular2-cool-storage';
 export class RegisterComponent implements OnInit {
   localStorage: CoolLocalStorage;
 
-
   submitted = false;
 
   private response: Object;
@@ -35,14 +34,14 @@ export class RegisterComponent implements OnInit {
   onSubmit(event) {
     this.submitted = true;
     this.signupUser = new SignupUser();
-    this.signupUser.email = event.target[0].value;
-    //todo recup values du form (utiliser onsubmit sur le template
+    this.signupUser.email = event.target[1].value;
+    // todo recup values du form (utiliser onsubmit sur le template
     console.log('hi');
     this.registerUser();
   }
 
-  /*consome l'api pour singup le user*/
-  private registerUser(): void {
+  /*consomme l'api pour singup le user*/
+  public registerUser(): void {
     console.log('hello ');
     /*todo use POST /users/ to add a new user to the DB*/
     this.userServiceInstance

@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
-import { FileUploadModule } from 'ng2-file-upload';
+import {FileUploadModule} from 'ng2-file-upload';
 
 
 import {AppComponent} from './app.component';
@@ -12,8 +12,8 @@ import {HomeComponent} from './home/home.component';
 import {LogoComponent} from './shared/logo/logo.component';
 import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
-import { RegisterComponent } from './register/register.component';
-import { TestUploadComponent } from './test-upload/test-upload.component';
+import {RegisterComponent} from './register/register.component';
+import {TestUploadComponent} from './test-upload/test-upload.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +62,6 @@ import { TestUploadComponent } from './test-upload/test-upload.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-//todo add a method to fill in req with token in headers
+// todo add a method to fill in req with token in headers
 export class AppModule {
 }
