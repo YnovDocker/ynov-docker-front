@@ -52,6 +52,10 @@ import {TestUploadComponent} from './test-upload/test-upload.component';
       {
         path: 'upload',
         component: TestUploadComponent
+      },
+      {
+        path: 'user',
+        component: UserComponent
       }
     ])
   ],

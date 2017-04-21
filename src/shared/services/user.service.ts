@@ -8,6 +8,7 @@ import {ChangePasswordObject} from '../models/helpers/change-password-object';
 import {ChangeEmailObject} from '../models/helpers/change-email-object';
 import {User} from '../models/user';
 import {SignupUser} from '../models/helpers/signup-user';
+import {UpdateUser} from "../models/helpers/update-user";
 
 @Injectable()
 export class UserService {
@@ -59,7 +60,7 @@ export class UserService {
   }
 
   /*Fonctionne*/
-  public ChangeUserInformation = (id: string, Variable: User): Observable<Response> => {
+  public ChangeUserInformation = (id: string, Variable: UpdateUser): Observable<Response> => {
     const JsonBody = JSON.stringify(Variable);
     return this._http.put(this.actionUrl + 'user/' + id + '/updateUser', JsonBody, {headers: this.headers});
   }
