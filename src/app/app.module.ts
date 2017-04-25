@@ -14,6 +14,7 @@ import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
 import { TestUploadComponent } from './test-upload/test-upload.component';
+import { Ng2FileSelectDirective } from './ng2-file-select.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TestUploadComponent } from './test-upload/test-upload.component';
     MenuComponent,
     AuthComponent,
     RegisterComponent,
-    TestUploadComponent
+    TestUploadComponent,
+    Ng2FileSelectDirective
   ],
   imports: [
     BrowserModule,

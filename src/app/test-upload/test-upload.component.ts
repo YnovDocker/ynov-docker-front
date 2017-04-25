@@ -4,8 +4,6 @@ import { FileUploader } from 'ng2-file-upload';
 const URL = 'http://localhost:10010/api/file/';
 // const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
-
-
 @Component({
   selector: 'app-test-upload',
   templateUrl: './test-upload.component.html',
@@ -22,4 +20,4 @@ export class TestUploadComponent implements OnInit {
 }
 
 // class FileSelectDirective
-//@Directive({ selector: '[ng2FileSelect]' })
+// @Directive({ selector: '[ng2FileSelect]' })
