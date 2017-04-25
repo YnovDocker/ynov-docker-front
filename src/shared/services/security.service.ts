@@ -32,8 +32,7 @@ export class SecurityService {
 
   /*Good*/
   public auth = (authObject: AuthObject): Observable<Response> => {
-    const JsonBody = JSON.stringify(authObject);
-    return this._http.post(this.actionUrl + 'auth', JsonBody, {headers: this.headers})
+    return this._http.post(this.actionUrl + 'auth', authObject, {headers: this.headers})
       .map((response => response.json()));
   }
 }

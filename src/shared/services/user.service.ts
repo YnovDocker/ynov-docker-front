@@ -8,6 +8,7 @@ import {ChangePasswordObject} from '../models/helpers/change-password-object';
 import {ChangeEmailObject} from '../models/helpers/change-email-object';
 import {User} from '../models/user';
 import {SignupUser} from '../models/helpers/signup-user';
+import {UpdateUser} from "../models/helpers/update-user";
 
 @Injectable()
 export class UserService {
@@ -23,21 +24,20 @@ export class UserService {
     this.headers.append('Accept', 'application/json');
   }
 
-  public GetAllUsers = (): Observable<String> => {
+  public GetAllUsers = (): Observable<User> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'user/')
-      .map(response => response.json());
+      .map(response => (response.json() as User));
   }
 
-  public GetSingleUserById = (id: string): Observable<String> => {
-    console.log(this.actionUrl + 'user/' + id + '/getUserById')
+  public GetSingleUserById = (id: string): Observable<User> => {
     return this._http.get(this.actionUrl + 'user/' + id + '/getUserById')
-      .map(response => response.json());
+      .map(response => (response.json() as User));
   }
 
-  public GetSingleUserByUsername = (Username: string): Observable<String> => {
+  public GetSingleUserByUsername = (Username: string): Observable<User> => {
     return this._http.get(this.actionUrl + 'user/' + Username + '/getUserByUsername')
-      .map(response => response.json());
+      .map(response => (response.json() as User));
   }
 
   /*Fonctionne*/
@@ -60,7 +60,7 @@ export class UserService {
   }
 
   /*Fonctionne*/
-  public ChangeUserInformation = (id: string, Variable: User): Observable<Response> => {
+  public ChangeUserInformation = (id: string, Variable: UpdateUser): Observable<Response> => {
     const JsonBody = JSON.stringify(Variable);
     return this._http.put(this.actionUrl + 'user/' + id + '/updateUser', JsonBody, {headers: this.headers});
   }

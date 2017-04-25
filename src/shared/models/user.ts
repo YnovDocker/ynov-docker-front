@@ -2,7 +2,8 @@
  * Created by Antoine on 07/04/2017.
  */
 export class User {
-  id: string;
+  _id: string;
+  username: string;
   firstname: string;
   lastname: string;
   birthDate: Date;

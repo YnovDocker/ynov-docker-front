@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
-import { FileUploadModule } from 'ng2-file-upload';
+import {FileUploadModule} from 'ng2-file-upload';
 
 
 import {AppComponent} from './app.component';
@@ -14,7 +14,8 @@ import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
 import { TestUploadComponent } from './test-upload/test-upload.component';
-import { Ng2FileSelectDirective } from './ng2-file-select.directive';
+// import { Ng2FileSelectDirective } from './ng2-file-select.directive';
+
 
 @NgModule({
   declarations: [
@@ -25,8 +26,8 @@ import { Ng2FileSelectDirective } from './ng2-file-select.directive';
     MenuComponent,
     AuthComponent,
     RegisterComponent,
-    TestUploadComponent,
-    Ng2FileSelectDirective
+    TestUploadComponent//,
+    // Ng2FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -54,12 +55,16 @@ import { Ng2FileSelectDirective } from './ng2-file-select.directive';
       {
         path: 'upload',
         component: TestUploadComponent
+      },
+      {
+        path: 'user',
+        component: UserComponent
       }
     ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-//todo add a method to fill in req with token in headers
+// todo add a method to fill in req with token in headers
 export class AppModule {
 }
