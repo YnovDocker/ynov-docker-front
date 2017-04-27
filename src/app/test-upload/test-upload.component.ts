@@ -1,7 +1,8 @@
 import {Component, Directive, OnInit} from '@angular/core';
-import {FileUploader} from 'ng2-file-upload';
+import {FileUploader} from "ng2-file-upload";
 
-const URL = 'http://localhost:10010/api/file/';
+const userId = '58f09faa7983e91b19e02b97';
+const URL = 'http://localhost:10010/api/file/'+userId;
 // const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 @Component({
