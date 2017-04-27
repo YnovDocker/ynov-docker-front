@@ -11,8 +11,8 @@ import {HomeComponent} from './home/home.component';
 import {LogoComponent} from './shared/logo/logo.component';
 import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
-import { RegisterComponent } from './register/register.component';
-import { TestUploadComponent } from './test-upload/test-upload.component';
+import {RegisterComponent} from './register/register.component';
+import {TestUploadComponent} from './test-upload/test-upload.component';
 
 
 @NgModule({

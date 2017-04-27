@@ -90,10 +90,10 @@ export class AuthComponent implements OnInit {
       if (status === 200 && !_.isEmpty(verifyAuthJson)) {
         console.log(verifyAuthJson);
         this.localStorage.setItem('isConnected', 'true');
-        this.localStorage.setItem('userId', verifyAuthJson.userId);
-        this.localStorage.setItem('username', verifyAuthJson.username);
-        this.localStorage.setItem('firstname', verifyAuthJson.firstname);
-        this.localStorage.setItem('lastname', verifyAuthJson.lastname);
+        this.localStorage.setItem('userId', verifyAuthJson.success.tokenObject.userId);
+        this.localStorage.setItem('username', verifyAuthJson.success.tokenObject.username);
+        this.localStorage.setItem('firstname', verifyAuthJson.success.tokenObject.firstname);
+        this.localStorage.setItem('lastname', verifyAuthJson.success.tokenObject.lastname);
         location.reload();
         this.router.navigate(['/']);
       } else if (status === 401 && error) {
