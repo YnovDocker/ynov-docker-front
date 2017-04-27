@@ -4,5 +4,11 @@
 export class ChangePasswordObject {
   oldPassword: string;
   newPassword: string;
-  newPasswordConfirmation: string;
+  confirmNewPassword: string;
+
+  constructor(){
+    this.oldPassword = "";
+    this.newPassword = "";
+    this.confirmNewPassword = "";
+  }
 }

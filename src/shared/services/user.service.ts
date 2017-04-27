@@ -48,7 +48,6 @@ export class UserService {
   /*Fonctionne*/
   public ChangeUserPassword = (id: string, Variable: ChangePasswordObject): Observable<Response> => {
     const JsonBody = JSON.stringify(Variable);
-    console.log(JsonBody);
     return this._http.put(this.actionUrl + 'user/' + id + '/updatePassword', JsonBody, {headers: this.headers});
   }
 
