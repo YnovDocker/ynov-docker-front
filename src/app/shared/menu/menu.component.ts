@@ -8,7 +8,7 @@ import {CoolLocalStorage} from "angular2-cool-storage";
 })
 export class MenuComponent implements OnInit {
 
-  private isConnectedMenu: string;
+  public isConnectedMenu: string;
   localStorage: CoolLocalStorage;
 
   constructor(localStorage: CoolLocalStorage) {
