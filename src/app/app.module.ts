@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {FileUploadModule} from 'ng2-file-upload';
+import {CoolStorageModule} from "angular2-cool-storage";
 
 import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
@@ -13,6 +14,7 @@ import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
 import {RegisterComponent} from './register/register.component';
 import {TestUploadComponent} from './test-upload/test-upload.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -24,12 +26,14 @@ import {TestUploadComponent} from './test-upload/test-upload.component';
     MenuComponent,
     AuthComponent,
     RegisterComponent,
-    TestUploadComponent
+    TestUploadComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    CoolStorageModule,
     FileUploadModule,
     RouterModule.forRoot([
       {
@@ -56,6 +60,10 @@ import {TestUploadComponent} from './test-upload/test-upload.component';
       {
         path: 'user',
         component: UserComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       }
     ])
   ],

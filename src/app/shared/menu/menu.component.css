@@ -24,6 +24,7 @@ nav li.menu_letter {
 nav li.menu_icon {
   width: 20px;
   margin-top: 2px;
+  margin-right: 5px;
 }
 
 nav li.menu_icon.right_side_menu {
@@ -35,7 +36,7 @@ nav li a{
   text-decoration: none;
   color: white;
   font-family: Rhanoll;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 

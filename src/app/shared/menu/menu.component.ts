@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CoolLocalStorage} from "angular2-cool-storage";
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  private isConnectedMenu: string;
+  localStorage: CoolLocalStorage;
+
+  constructor(localStorage: CoolLocalStorage) {
+    this.localStorage = localStorage;
+
+  }
 
   ngOnInit() {
+    this.isConnectedMenu = this.localStorage.getItem('isConnected') || 'false';
   }
 
 }

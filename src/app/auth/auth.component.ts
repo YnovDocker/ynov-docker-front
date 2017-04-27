@@ -88,12 +88,13 @@ export class AuthComponent implements OnInit {
     this.auth(this.authJson, (status: number, error: any, verifyAuthJson: any) => {
       /*si le status de retour est à 200: OK, et que l'objet de retour n'est pas vide: on redirige*/
       if (status === 200 && !_.isEmpty(verifyAuthJson)) {
-        console.log(verifyAuthJson);
+        // console.log(JSON.stringify(verifyAuthJson));
         this.localStorage.setItem('isConnected', 'true');
         this.localStorage.setItem('userId', verifyAuthJson.success.tokenObject.userId);
         this.localStorage.setItem('username', verifyAuthJson.success.tokenObject.username);
         this.localStorage.setItem('firstname', verifyAuthJson.success.tokenObject.firstname);
         this.localStorage.setItem('lastname', verifyAuthJson.success.tokenObject.lastname);
+        this.localStorage.setItem('token', verifyAuthJson.success.token);
         location.reload();
         this.router.navigate(['/']);
       } else if (status === 401 && error) {
