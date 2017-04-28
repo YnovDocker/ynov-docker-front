@@ -1,10 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {FileUploadModule} from 'ng2-file-upload';
-import {CoolStorageModule} from "angular2-cool-storage";
+import {CoolStorageModule} from 'angular2-cool-storage';
 
 import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
@@ -14,7 +14,7 @@ import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
 import {RegisterComponent} from './register/register.component';
 import {TestUploadComponent} from './test-upload/test-upload.component';
-import { LogoutComponent } from './logout/logout.component';
+import {LogoutComponent} from './logout/logout.component';
 
 
 @NgModule({
@@ -32,6 +32,7 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     CoolStorageModule,
     FileUploadModule,
