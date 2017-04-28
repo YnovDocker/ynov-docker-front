@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   private response: Object;
   private errorMessage: string;
   private infoMessage: string;
-  private signupUser: SignupUser;
+  public signupUser: SignupUser;
 
   constructor(private userServiceInstance: UserService,
               private router: Router,
