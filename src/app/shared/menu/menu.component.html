@@ -2,8 +2,10 @@
   <ul id="menu">
     <li *ngIf="isConnectedMenu == 'true'" class="menu_letter"><a routerLink="/logout">Log Out</a></li>
     <li *ngIf="isConnectedMenu != 'true'" class="menu_letter" ><a routerLink="/auth">Log In / Sign Up</a></li>
-    <li *ngIf="isConnectedMenu == 'true'" class="menu_icon"><a routerLink="/search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-    <li *ngIf="isConnectedMenu == 'true'" class="menu_icon"><a routerLink="/user"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+    <li *ngIf="isConnectedMenu == 'true'" class="menu_letter"><a routerLink="/user">Profile</a></li>
+    <li *ngIf="isConnectedMenu == 'true'" class="menu_letter"><a routerLink="/manage">Manage</a></li>
+    <li *ngIf="isConnectedMenu == 'true'" class="menu_letter"><a routerLink="/view">View</a></li>
+    <!--<li *ngIf="isConnectedMenu == 'true'" class="menu_icon"><a routerLink="/search"><i class="fa fa-search" aria-hidden="true"></i></a></li>-->
     <!--<li *ngIf="isConnectedMenu == 'true'" class="menu_icon"><a routerLink="/message"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>-->
     <!--<li class="menu_letter "><a routerLink="/signup/step0">Sign Up</a></li>-->
     <!--<li class="menu_letter"><a routerLink="/streamings">Streaming</a></li>-->
