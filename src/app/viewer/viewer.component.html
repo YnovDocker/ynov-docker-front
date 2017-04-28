@@ -1,0 +1,21 @@
+<p>
+  viewer works!
+</p>
+
+<div class="modal fade" id="selectedImageModal" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img *ngIf="selectedImage" src="{{selectedImage.privateLink}}" >
+      </div>
+    </div>
+  </div>
+</div>
+<ul id="thumbnailsList">
+  <li *ngFor="let image of images" >
+    <img src="{{image.publicLink}}" class="tn"
+         width="191" height="146"
+         data-toggle="modal" data-target="#selectedImageModal"
+         (click)=setSelectedImage(image)>
+  </li>
+</ul>
