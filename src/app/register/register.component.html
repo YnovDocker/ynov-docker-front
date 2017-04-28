@@ -4,45 +4,72 @@
   <h2 class="register-header">Register</h2>
   <!--#heroForm="ngForm"-->
   <form [formGroup]="registerForm" novalidate class="register-container" (ngSubmit)="onSubmitRegister($event)">
-    <p><input type="text" class="form-control"
-              formControlName="username"
-              placeholder="Username" required></p>
-    <small [hidden]="registerForm.get('username').valid || (registerForm.get('username').pristine && !submitted)">
-      Username is required (minimum 5 characters).
-    </small>
-    <p><input type="email" class="form-control" id="email"
-              formControlName="email" name="email"
-              placeholder="Email" required></p>
-    <small [hidden]="registerForm.get('email').valid || (registerForm.get('email').pristine && !submitted)">
-      Username is required (minimum 5 characters).
-    </small>
-    <p><input type="text" class="form-control" id="firstname"
-              formControlName="firstname" name="firstname"
-              placeholder="Firstname" required></p>
-    <small [hidden]="registerForm.get('firstname').valid || (registerForm.get('firstname').pristine && !submitted)">
-      Username is required (minimum 5 characters).
-    </small>
-    <p><input type="text" class="form-control" id="lastname"
-              formControlName="lastname" name="lastname"
-              placeholder="Lastname" required></p>
-    <small [hidden]="registerForm.get('lastname').valid || (registerForm.get('lastname').pristine && !submitted)">
-      Username is required (minimum 5 characters).
-    </small>
-    <p><input type="password" class="form-control" id="password"
-              formControlName="password" name="password"
-              placeholder="Password" required></p>
-    <small [hidden]="registerForm.get('password').valid || (registerForm.get('password').pristine && !submitted)">
-      Username is required (minimum 5 characters).
-    </small>
-    <p><input type="password" class="form-control" id="passwordConfirmation"
-              formControlName="passwordConfirmation" name="passwordConfirmation"
-              placeholder="Retype Password" required></p>
-    <small
-      [hidden]="registerForm.get('passwordConfirmation').valid || (registerForm.get('passwordConfirmation').pristine && !submitted)">
-      Username is required (minimum 5 characters).
-    </small>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.get('username').valid}">
+      <p><input type="text" class="form-control"
+                formControlName="username"
+                placeholder="Username" required></p>
+      <small style="color: red;"
+             [hidden]="registerForm.get('username').valid || (registerForm.get('username').pristine && !submitted)">
+        Username is required.
+      </small>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.get('email').valid}">
+      <p><input type="email" class="form-control" id="email"
+                formControlName="email" name="email"
+                placeholder="Email" required></p>
+      <small style="color: red;"
+             [hidden]="registerForm.get('email').valid || (registerForm.get('email').pristine && !submitted)">
+        Email is required.
+      </small>
+      <div class="md-errors-spacer" [hidden]="registerForm.get('email').valid || registerForm.get('email').untouched">
+        <div class="md-char-counter"
+             *ngIf="registerForm.get('email').errors && registerForm.get('email').errors.required">
+          Email is required
+        </div>
+        <div class="md-char-counter"
+             *ngIf="registerForm.get('email').errors && registerForm.get('email').errors.pattern">
+          Email is invalid
+        </div>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.get('firstname').valid}">
+      <p><input type="text" class="form-control" id="firstname"
+                formControlName="firstname" name="firstname"
+                placeholder="Firstname" required></p>
+      <small style="color: red;"
+             [hidden]="registerForm.get('firstname').valid || (registerForm.get('firstname').pristine && !submitted)">
+        Firstname is required.
+      </small>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.get('lastname').valid}">
+      <p><input type="text" class="form-control" id="lastname"
+                formControlName="lastname" name="lastname"
+                placeholder="Lastname" required></p>
+      <small style="color: red;"
+             [hidden]="registerForm.get('lastname').valid || (registerForm.get('lastname').pristine && !submitted)">
+        Lastname is required.
+      </small>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.get('password').valid}">
+      <p><input type="password" class="form-control" id="password"
+                formControlName="password" name="password"
+                placeholder="Password" required></p>
+      <small style="color: red;"
+             [hidden]="registerForm.get('password').valid || (registerForm.get('password').pristine && !submitted)">
+        Password is required.
+      </small>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.get('passwordConfirmation').valid}">
+      <p><input type="password" class="form-control" id="passwordConfirmation"
+                formControlName="passwordConfirmation" name="passwordConfirmation"
+                placeholder="Retype Password" required></p>
+      <small style="color: red;"
+             [hidden]="registerForm.get('passwordConfirmation').valid || (registerForm.get('passwordConfirmation').pristine && !submitted)">
+        PasswordConfirmation is required.
+      </small>
+    </div>
     <p>
-      <button type="submit" class="btn btn-success">Register</button>
+      <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Register</button>
     </p>
     <!--<p><input type="submit" value="Register"></p>-->
     <a href="/auth">Login</a>

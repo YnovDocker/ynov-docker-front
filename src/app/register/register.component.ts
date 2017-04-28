@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
     //defining FormGroup
     this.registerForm = this._fb.group({
       username: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       password: ['', Validators.required],
@@ -69,14 +69,17 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         data => this.response = data,
         error => {
+          //todo handle type of error and display corresponding error message
           console.log(JSON.parse(error._body).error);
           this.errorMessage = JSON.parse(error._body).error;
           this.infoMessage = null;
+
         },
         () => {
           console.log('signup User complete', this.response);
           this.infoMessage = 'Check Now your Email to signup ...';
           this.errorMessage = null;
+          this.router.navigate(['/auth']);
         }
       );
   }
