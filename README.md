@@ -3,6 +3,7 @@ Image Viewer Frontend App
 
 ### Installation
 #### Pre requesites:
+
 1. Clean cache, and update for new webpack version
 ``` js
 npm uninstall -g @angular/cli
