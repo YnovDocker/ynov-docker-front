@@ -2,18 +2,20 @@
   viewer works!
 </p>
 
-<div class="modal fade" id="selectedImageModal" >
+<div class="modal fade" id="selectedImageModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <img *ngIf="selectedImage" src="{{selectedImage.privateLink}}" >
+        <img *ngIf="selectedImage" id="uploadPicture" class="uploadPicture"
+             [src]="_DomSanitizationService.bypassSecurityTrustUrl('data:image/jpg;base64 ' + selectedImage.privateLink)">
       </div>
     </div>
   </div>
 </div>
 <ul id="thumbnailsList">
-  <li *ngFor="let image of images" >
-    <img src="{{image.publicLink}}" class="tn"
+  <li *ngFor="let image of images">
+    <!--<img [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgSrcProperty)"/>-->
+    <img [src]="_DomSanitizationService.bypassSecurityTrustUrl('data:image/jpg;base64 ' + image.publicLink)" class="tn"
          width="191" height="146"
          data-toggle="modal" data-target="#selectedImageModal"
          (click)=setSelectedImage(image)>

@@ -14,10 +14,9 @@ import {MenuComponent} from './shared/menu/menu.component';
 import {AuthComponent} from './auth/auth.component';
 import {RegisterComponent} from './register/register.component';
 import {TestUploadComponent} from './manage/test-upload/test-upload.component';
-import { LogoutComponent } from './logout/logout.component';
-import { ViewerComponent } from './viewer/viewer.component';
-import { PanelComponent } from './manage/panel/panel.component';
-
+import {LogoutComponent} from './logout/logout.component';
+import {ViewerComponent} from './viewer/viewer.component';
+import {PanelComponent} from './manage/panel/panel.component';
 
 @NgModule({
   declarations: [

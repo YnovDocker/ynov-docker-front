@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FileService} from "../../shared/services/file.service";
-import {CoolLocalStorage} from "angular2-cool-storage";
-import {Configuration} from "../../shared/app.constants";
-import {File} from "../../shared/models/file";
+import {Component, OnInit} from '@angular/core';
+import {FileService} from '../../shared/services/file.service';
+import {CoolLocalStorage} from 'angular2-cool-storage';
+import {Configuration} from '../../shared/app.constants';
+import {File} from '../../shared/models/file';
+import {DomSanitizer} from '@angular/platform-browser';
 
 
 @Component({
@@ -18,12 +19,14 @@ export class ViewerComponent implements OnInit {
   images: Array<File> = [];
   selectedImage;
   backEndUrl: string;
+  private _DomSanitizationService: DomSanitizer;
 
   constructor(private fileService: FileService,
-              localStorage: CoolLocalStorage) {
+              localStorage: CoolLocalStorage, public domSanitizationService: DomSanitizer) {
     this.localStorage = localStorage;
     this.userId = this.localStorage.getItem('userId');
-    this.backEndUrl = "http://localhost:10010";
+    this.backEndUrl = 'http://localhost:10010';
+    this._DomSanitizationService = domSanitizationService;
   }
 
   ngOnInit() {
@@ -33,8 +36,7 @@ export class ViewerComponent implements OnInit {
     });
   }
 
-  setSelectedImage(image){
-    this.selectedImage= image;
+  setSelectedImage(image) {
+    this.selectedImage = image;
   }
-
 }
