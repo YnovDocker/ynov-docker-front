@@ -19,7 +19,7 @@ export class ViewerComponent implements OnInit {
   images: Array<File> = [];
   selectedImage;
   backEndUrl: string;
-  private _DomSanitizationService: DomSanitizer;
+  _DomSanitizationService: DomSanitizer;
 
   constructor(private fileService: FileService,
               localStorage: CoolLocalStorage, public domSanitizationService: DomSanitizer) {
@@ -38,5 +38,9 @@ export class ViewerComponent implements OnInit {
 
   setSelectedImage(image) {
     this.selectedImage = image;
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.images);
   }
 }

@@ -7,7 +7,7 @@
     <div class="modal-content">
       <div class="modal-body">
         <img *ngIf="selectedImage" id="uploadPicture" class="uploadPicture"
-             [src]="_DomSanitizationService.bypassSecurityTrustUrl('data:image/jpg;base64 ' + selectedImage.privateLink)">
+             [src]="_DomSanitizationService.bypassSecurityTrustUrl('data:image/jpg;base64,' + selectedImage.privateLink)">
       </div>
     </div>
   </div>
@@ -15,9 +15,10 @@
 <ul id="thumbnailsList">
   <li *ngFor="let image of images">
     <!--<img [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgSrcProperty)"/>-->
-    <img [src]="_DomSanitizationService.bypassSecurityTrustUrl('data:image/jpg;base64 ' + image.publicLink)" class="tn"
+    <img [src]="_DomSanitizationService.bypassSecurityTrustUrl('data:image/jpg;base64,' + image.publicLink)" class="tn"
          width="191" height="146"
          data-toggle="modal" data-target="#selectedImageModal"
          (click)=setSelectedImage(image)>
+    {{diagnostic}}
   </li>
 </ul>
